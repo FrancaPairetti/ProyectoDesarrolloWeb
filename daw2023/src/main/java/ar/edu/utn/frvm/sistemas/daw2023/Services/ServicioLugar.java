@@ -29,4 +29,16 @@ public class ServicioLugar implements IServicioLugar{
     public Lugar guardar(Lugar l) {
         return repositorio.save(l);
     }
+
+    @Override
+    public Lugar actualizar(Integer id ,Lugar l) {
+        //aca iria la logica 
+        //if (l.)
+        return repositorio.save(l);
+    }
+
+    @Override
+    public void eliminar(Integer id ) {
+        repositorio.deleteById(id);
+    }
 }

@@ -9,5 +9,9 @@ public interface IServicioLugar {
     Iterable <Lugar> getTodos();
 
     Lugar guardar(Lugar l);
+    
+    Lugar actualizar(Integer id , Lugar l);
+
+    public void eliminar(Integer id);
 
 }
