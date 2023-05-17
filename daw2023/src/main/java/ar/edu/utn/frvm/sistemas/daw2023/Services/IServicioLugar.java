@@ -8,10 +8,17 @@ public interface IServicioLugar {
     
     Iterable <Lugar> getTodos();
 
+    Iterable <Lugar> getFiltroNombre(String nombre);
+
+    Iterable <Lugar> getFiltroCapacidad(Integer capacidad);
+    
+    Iterable <Lugar> getFiltroCapacidadNombre(Integer capacidad, String nombre);
+
     Lugar guardar(Lugar l);
     
     Lugar actualizar(Integer id , Lugar l);
 
     public void eliminar(Integer id);
+
 
 }

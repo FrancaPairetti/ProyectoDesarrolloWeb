@@ -26,6 +26,23 @@ public class ServicioLugar implements IServicioLugar{
     }
 
     @Override
+    public Iterable<Lugar> getFiltroNombre(String nombre) {
+        return repositorio.findAllByNombreIgnoreCaseContains(nombre);
+    }
+
+    @Override
+    public Iterable<Lugar> getFiltroCapacidad(Integer capacidad) {
+        return repositorio.findAllByCapacidad(capacidad);
+    }
+
+    @Override
+    public Iterable<Lugar> getFiltroCapacidadNombre(Integer capacidad,String nombre) {
+        //return repositorio.findAllByCapacidad(capacidad);
+        return repositorio.findAllByNombreIgnoreCaseContainsAndCapacidad(capacidad, nombre);
+    }
+
+
+    @Override
     public Lugar guardar(Lugar l) {
         return repositorio.save(l);
     }

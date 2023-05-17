@@ -2,6 +2,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.Services;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
@@ -23,6 +24,11 @@ public class ServicioRecurso implements IServicioRecurso{
     @Override
     public Iterable<Recurso> getTodos() {
         return repositorio.findAll();
+    }
+    
+    @Override
+    public Iterable<Recurso> getTodosPaginado(Pageable p) {
+        return repositorio.findAll(p);
     }
 
     @Override

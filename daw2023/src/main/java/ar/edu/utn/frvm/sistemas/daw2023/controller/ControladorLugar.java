@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.utn.frvm.sistemas.daw2023.Services.IServicioLugar;
@@ -33,6 +34,22 @@ public class ControladorLugar {
         return this.servicio.getTodos();
     }
 
+    @GetMapping(value = "/serch" , params = {"nombre"})
+    public Iterable<Lugar> getFiltroNombre(@RequestParam (name="nombre" , required = true) String nombre ){
+        return this.servicio.getFiltroNombre(nombre);
+    }
+
+    @GetMapping(value = "/serch" , params = {"capacidad"})
+    public Iterable<Lugar> getFiltroCapacidad(@RequestParam (name="capacidad" , required = true) Integer capacidad){
+        return this.servicio.getFiltroCapacidad(capacidad);
+    }
+
+    @GetMapping(value = "/serch" , params = {"capacidad" , "nombre"})
+    public Iterable<Lugar> getFiltroCapacidadNombre(@RequestParam (name="capacidad") Integer capacidad , @RequestParam (name="nombre") String nombre ){
+        return this.servicio.getFiltroCapacidadNombre(capacidad,nombre);
+    }
+
+
     @PostMapping()
     public Lugar guardar(@RequestBody Lugar l) {
         return this.servicio.guardar(l);
@@ -45,12 +62,8 @@ public class ControladorLugar {
     
     @DeleteMapping("/{ID}")
     public void eliminar(@PathVariable ("ID") Integer id  ){
-         this.servicio.eliminar(id);
+        this.servicio.eliminar(id);
     }
-
-
-
-
 
     
 }

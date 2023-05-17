@@ -1,10 +1,12 @@
 package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.utn.frvm.sistemas.daw2023.Services.IServicioRecurso;
@@ -29,6 +31,11 @@ public class ControladorRecurso {
     @GetMapping()
     public Iterable<Recurso> getTodos(){
         return this.servicio.getTodos();
+    }
+
+    @GetMapping(params ={"pag"})
+    public Iterable<Recurso> getTodosPaginado(Pageable p ){
+        return this.servicio.getTodosPaginado(p);
     }
 
     @PostMapping()
