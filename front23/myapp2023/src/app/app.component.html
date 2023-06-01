@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-primer-componente></app-primer-componente>
+<div *ngIf="edad >2 " [style.background]="edad >5 ? 'green':'red'" >
+  Tu edad es: {{edad}}
+</div>
+<button class="btn btn-success" (click)="aumentarEdad()">Aumentar</button>
+<button class="btn  btn-warning" (click)="diminuirEdad()">Diminuir</button>
+
+<ul>
+  <li *ngFor="let n of nombres ; let indice = index">
+    ({{indice}}) {{n}}
+
+  </li>
+</ul>
+
+<table class="table caption-top">
+  <caption>Lista de nombres</caption>
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let n of nombres ">
+      <td>{{n.first_name}}</td>
+    </tr>
+  </tbody>
+</table>
+<app-primer-componente></app-primer-componente>
+<app-footer></app-footer>
