@@ -8,5 +8,5 @@ import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 
 @Repository
 public interface RepositorioRecurso extends PagingAndSortingRepository <Recurso , Integer> , CrudRepository <Recurso , Integer> {
-    
+    Iterable<Recurso> findAllByNombreIgnoreCaseContains(String n);
 }
